@@ -1,49 +1,110 @@
-<head>
-    <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Blog Post | Blog Creation</title>
-<meta name="description" content="Creation of personal blog">
-
-<link rel="stylesheet" href="../assets/style.css">
-
-<link rel="icon" href="../../favicon/favicon.ico">
-<link rel="apple-touch-icon" href="../../favicon/favicon.ico">
-<script src="https://cdn.jsdelivr.net/npm/prismjs@1.28.0/prism.min.js"></script>
-
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Portfolio" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="icon" type="image/x-icon" href="../../favicon/favicon.ico">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/fa62c117c7.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="../../styles.css" />
+    <title>Hayden Hildreth</title>
   </head>
-<header>
-<nav>
-  
-  <a href="https://haydenhildreth.com/">Home</a>
-  
-  <a href="../blog.html">Blog</a>
-  
-  <a href="https://github.com/HaydenHildreth"><svg class="icon" viewBox="0 0 32 32"><path d="M16 0.395c-8.836 0-16 7.163-16 16 0 7.069 4.585 13.067 10.942 15.182 0.8 0.148 1.094-0.347 1.094-0.77 0-0.381-0.015-1.642-0.022-2.979-4.452 0.968-5.391-1.888-5.391-1.888-0.728-1.849-1.776-2.341-1.776-2.341-1.452-0.993 0.11-0.973 0.11-0.973 1.606 0.113 2.452 1.649 2.452 1.649 1.427 2.446 3.743 1.739 4.656 1.33 0.143-1.034 0.558-1.74 1.016-2.14-3.554-0.404-7.29-1.777-7.29-7.907 0-1.747 0.625-3.174 1.649-4.295-0.166-0.403-0.714-2.030 0.155-4.234 0 0 1.344-0.43 4.401 1.64 1.276-0.355 2.645-0.532 4.005-0.539 1.359 0.006 2.729 0.184 4.008 0.539 3.054-2.070 4.395-1.64 4.395-1.64 0.871 2.204 0.323 3.831 0.157 4.234 1.026 1.12 1.647 2.548 1.647 4.295 0 6.145-3.743 7.498-7.306 7.895 0.574 0.497 1.085 1.47 1.085 2.963 0 2.141-0.019 3.864-0.019 4.391 0 0.426 0.288 0.925 1.099 0.768 6.354-2.118 10.933-8.113 10.933-15.18 0-8.837-7.164-16-16-16z"></path></svg>Github</a>
-  
-</nav>
+  <body class="light" id="top">
+    <header class="header center">
+      <h3>
+        <a href="https://haydenhildreth.com" class="link"
+          >HH.</a
+        >
+      </h3>
 
-        <h1>Blog Creation</h1>
-      <p>Published: Sep 10, 2023 <br>by <a href="https://haydenhildreth.com/">Hayden</a></p>
+      <nav class="nav center">
+        <ul class="nav__list center">
+          <li class="nav__list-item">
+            <a class="link link--nav" href="https://haydenhildreth.com">Home</a>
+          </li>
+          <li class="nav__list-item">
+            <a class="link link--nav" href="../blog.html">Blog</a>
+          </li>
+        </ul>
+
+        <button type="button" aria-label="toggle theme" class="btn btn--icon">
+          <i aria-hidden="true" id="btn-theme" class="fas fa-moon"></i>
+        </button>
+
+        <button
+          type="button"
+          aria-label="toggle navigation"
+          class="btn btn--icon nav__hamburger"
+        >
+          <i aria-hidden="true" class="fas fa-bars"></i>
+        </button>
+      </nav>
     </header>
 
+    <main>
+      <!-- Post -->
+      <div class="about center">
+        <h1><span class="blog__special">Blog</span> creation.</h1>
+        <h2 class="blog__large">Published: Sep 10, 2023</h2>
+        <p class="blog__small">
+          Finally got around to creating the blog portion of this site, there's still a lot to do. But the template is pretty good and I feel that I could make it mine. 
+          I'm going to continue to work on it and change it to my liking. But for the time being, I will put things I'm interested in, and updates here.
+        </p>
 
- <main>
-<article>
-     
-      <p>
-        Finally got around to creating the blog portion of this site, there's still <b>a lot</b> to do.
-        But the template is pretty good and I feel that I could make it mine.
-        I'm going to continue to work on it and change it to my liking. But for the time being, I will put
-        things I'm interested in, and updates here.
-      </p>
-    </article>
+        <div class="about__contact center">
+          <a
+            href="https://github.com/haydenhildreth"
+            aria-label="github"
+            class="link link--icon"
+          >
+            <i aria-hidden="true" class="fab fa-github"></i>
+          </a>
+
+          <a
+            href="https://linkedin.com/in/hayden-hildreth"
+            aria-label="linkedin"
+            class="link link--icon"
+          >
+            <i aria-hidden="true" class="fab fa-linkedin"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Contact -->
+      <section class="section contact center" id="contact">
+        <h2 class="section__title">Contact</h2>
+        <a href="mailto:contact@haydenhildreth.com">
+          <span class="btn btn--outline">Email me</span>
+        </a>
+      </section>
     </main>
 
-    <footer>
-      <p>Website created, modified and maintained by <a href="https://www.haydenhildreth.com/">HaydenHildreth</a> using theme from <a href="https://github.com/MarketingPipeline/">Marketing Pipeline</a>.</p>
-  <small>© 2023 Hayden Hildreth</small>
-      <address>contact@haydenhildreth.com</address>
-    </footer>   
- <script src="https://cdn.jsdelivr.net/gh/MarketingPipeline/Markdown-Tag/markdown-tag.js"></script> 
+    <footer class="footer">
+      <a
+        href="https://haydenhildreth.com"
+        class="link footer__link"
+      >
+        By Hayden Hildreth
+      </a>
+    </footer>
+
+    <div class="scroll-container">
+    <div class="scroll-top">
+      <a aria-label="Scroll up" href="#top">
+        <i aria-hidden="true" class="fas fa-arrow-up"></i>
+      </a>
+    </div>
+    </div>
+
+    <script src="../../script.js"></script>
+  </body>
+</html>
