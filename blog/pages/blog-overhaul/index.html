@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Portfolio" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="icon" type="image/x-icon" href="../../favicon/favicon.ico">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/fa62c117c7.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="../../styles.css" />
+    <title>Hayden Hildreth</title>
+  </head>
+  <body class="light" id="top">
+    <header class="header center">
+      <h3>
+        <a href="https://haydenhildreth.com" class="link"
+          >HH.</a
+        >
+      </h3>
+
+      <nav class="nav center">
+        <ul class="nav__list center">
+          <li class="nav__list-item">
+            <a class="link link--nav" href="https://haydenhildreth.com">Home</a>
+          </li>
+          <li class="nav__list-item">
+            <a class="link link--nav" href="https://haydenhildreth.com/blog">Blog</a>
+          </li>
+        </ul>
+
+        <button type="button" aria-label="toggle theme" class="btn btn--icon">
+          <i aria-hidden="true" id="btn-theme" class="fas fa-moon"></i>
+        </button>
+
+        <button
+          type="button"
+          aria-label="toggle navigation"
+          class="btn btn--icon nav__hamburger"
+        >
+          <i aria-hidden="true" class="fas fa-bars"></i>
+        </button>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Post -->
+      <div class="about center">
+        <h1><span class="blog__special">Blog</span> overhaul.</h1>
+        <h2 class="blog__large">Published: Oct 1, 2023</h2>
+        <p class="blog__small">
+          I had some time this weekend to start a small side project I have been debating doing. It was to update the blog portion of this site,
+          and make it use the the and CSS of the main website. I didn't fully know if I wanted to put in the effort to port it over, but I was a
+          bit bored this morning and waiting for my laundry to finish. After looking at the code, it did not seem like too much of a task to do so
+          but it certainly wasn't an easy or simple thing to do. 
+          
+          <br><br>
+          
+          I'm very happy with the results however, as now the blog looks much cleaner. That may
+          make me decide to post here more as I'm finally happy with the result, however I'm sure I will change and fix up things as I always do.
+          The site as a whole looks much cleaner, and now that the blog matches, and there are other features which have been implemented
+          (i.e. Dark/Light mode, etc...) I have a much deeper understanding of the flow of the website and what I truly want out of it.
+        </p>
+
+        <div class="about__contact center">
+          <a
+            href="https://github.com/haydenhildreth"
+            aria-label="github"
+            class="link link--icon"
+          >
+            <i aria-hidden="true" class="fab fa-github"></i>
+          </a>
+
+          <a
+            href="https://linkedin.com/in/hayden-hildreth"
+            aria-label="linkedin"
+            class="link link--icon"
+          >
+            <i aria-hidden="true" class="fab fa-linkedin"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Contact -->
+      <section class="section contact center" id="contact">
+        <h2 class="section__title">Contact</h2>
+        <a href="mailto:contact@haydenhildreth.com">
+          <span class="btn btn--outline">Email me</span>
+        </a>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <a
+        href="https://haydenhildreth.com"
+        class="link footer__link"
+      >
+        By Hayden Hildreth
+      </a>
+    </footer>
+
+    <div class="scroll-container">
+    <div class="scroll-top">
+      <a aria-label="Scroll up" href="#top">
+        <i aria-hidden="true" class="fas fa-arrow-up"></i>
+      </a>
+    </div>
+    </div>
+
+    <script src="../../script.js"></script>
+  </body>
+</html>
