@@ -338,11 +338,24 @@ main {
 .blog__small {
   font-size: 1rem;
   max-width: 600px;
-}
-
-.blog__small {
   margin-top: 2.4em;
 }
+
+.project__special {
+  color: var(--clr-primary);
+}
+
+.project__large {
+  margin-top: 1.2em;
+}
+
+.project__small {
+  font-size: 1rem;
+  max-width: 600px;
+  margin-top: 2.4em;
+  margin-bottom: 2.4em;
+}
+
 
 /**/
 .blog__grid {
