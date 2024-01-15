@@ -1,1 +1,0 @@
-This lets me make the images folder, which will hold image assets to be referenced in blog.
