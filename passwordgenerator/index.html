@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border: 2px solid black;
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            color: black;
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: black;
+            font-weight: normal;
+            font-size: 0.95rem;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .length-display {
+            text-align: center;
+            color: black;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            padding: 8px;
+            border: 1px solid black;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        .generate-btn {
+            width: 100%;
+            padding: 15px;
+            background: white;
+            color: black;
+            border: 2px solid black;
+            font-size: 1.1rem;
+            font-weight: normal;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        .generate-btn:hover {
+            background: black;
+            color: white;
+        }
+
+        .password-output {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .password-display {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid black;
+            font-family: 'Courier New', monospace;
+            font-size: 1rem;
+            background: white;
+            color: black;
+            word-break: break-all;
+            min-height: 50px;
+            resize: none;
+        }
+
+        .copy-btn {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: white;
+            color: black;
+            border: 1px solid black;
+            padding: 8px 12px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .copy-btn:hover {
+            background: black;
+            color: white;
+        }
+
+        .copy-btn.copied {
+            background: black;
+            color: white;
+        }
+
+        .strength-meter {
+            margin-top: 15px;
+        }
+
+        .strength-bar {
+            width: 100%;
+            height: 8px;
+            background: white;
+            border: 1px solid black;
+            overflow: hidden;
+        }
+
+        .strength-fill {
+            height: 100%;
+            background: black;
+        }
+
+        .strength-text {
+            text-align: center;
+            margin-top: 8px;
+            font-weight: normal;
+            font-size: 0.9rem;
+            color: black;
+        }
+
+        .bulk-generate {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 2px solid #e9ecef;
+        }
+
+        .bulk-input {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+            align-items: center;
+        }
+
+        .bulk-input input[type="number"] {
+            padding: 10px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 1rem;
+            width: 80px;
+        }
+
+        .bulk-results {
+            max-height: 200px;
+            overflow-y: auto;
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+
+        .bulk-password {
+            font-family: 'Courier New', monospace;
+            padding: 8px 0;
+            border-bottom: 1px solid #e9ecef;
+            word-break: break-all;
+        }
+
+        .bulk-password:last-child {
+            border-bottom: none;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                margin: 10px;
+                padding: 25px;
+            }
+            
+            .checkbox-group {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Password Generator</h1>
+        
+        <div class="form-group">
+            <label for="length">Password Length</label>
+            <input type="range" id="length" min="8" max="128" value="16">
+            <div class="length-display" id="lengthDisplay">16 characters</div>
+        </div>
+
+        <div class="form-group">
+            <label>Character Types</label>
+            <div class="checkbox-group">
+                <div class="checkbox-item">
+                    <input type="checkbox" id="uppercase" checked>
+                    <label for="uppercase">A-Z (Uppercase)</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="lowercase" checked>
+                    <label for="lowercase">a-z (Lowercase)</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="numbers" checked>
+                    <label for="numbers">0-9 (Numbers)</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="symbols" checked>
+                    <label for="symbols">!@#$ (Symbols)</label>
+                </div>
+            </div>
+        </div>
+
+        <button class="generate-btn" onclick="generatePassword()">
+            Generate Password
+        </button>
+
+        <div class="password-output">
+            <textarea class="password-display" id="passwordDisplay" readonly placeholder="Your generated password will appear here..."></textarea>
+            <button class="copy-btn" id="copyBtn" onclick="copyPassword()">Copy</button>
+        </div>
+
+        <div class="strength-meter">
+            <div class="strength-bar">
+                <div class="strength-fill" id="strengthFill"></div>
+            </div>
+            <div class="strength-text" id="strengthText">Generate a password to see strength</div>
+        </div>
+    </div>
+
+    <script>
+        // Character sets
+        const charSets = {
+            uppercase: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+            lowercase: 'abcdefghijklmnopqrstuvwxyz',
+            numbers: '0123456789',
+            symbols: '!@#$%^&*()_+-=[]{}|;:,.<>?'
+        };
+
+        // Update length display
+        document.getElementById('length').addEventListener('input', function() {
+            document.getElementById('lengthDisplay').textContent = this.value + ' characters';
+        });
+
+        function generatePassword() {
+            const length = parseInt(document.getElementById('length').value);
+            const useUppercase = document.getElementById('uppercase').checked;
+            const useLowercase = document.getElementById('lowercase').checked;
+            const useNumbers = document.getElementById('numbers').checked;
+            const useSymbols = document.getElementById('symbols').checked;
+
+            if (!useUppercase && !useLowercase && !useNumbers && !useSymbols) {
+                alert('Please select at least one character type!');
+                return;
+            }
+
+            let availableChars = '';
+            if (useUppercase) availableChars += charSets.uppercase;
+            if (useLowercase) availableChars += charSets.lowercase;
+            if (useNumbers) availableChars += charSets.numbers;
+            if (useSymbols) availableChars += charSets.symbols;
+
+            let password = '';
+            
+            // Ensure at least one character from each selected type
+            if (useUppercase) password += getRandomChar(charSets.uppercase);
+            if (useLowercase) password += getRandomChar(charSets.lowercase);
+            if (useNumbers) password += getRandomChar(charSets.numbers);
+            if (useSymbols) password += getRandomChar(charSets.symbols);
+
+            // Fill the rest randomly
+            for (let i = password.length; i < length; i++) {
+                password += getRandomChar(availableChars);
+            }
+
+            // Shuffle the password to randomize the guaranteed characters
+            password = shuffleString(password);
+
+            document.getElementById('passwordDisplay').value = password;
+            updateStrengthMeter(password);
+        }
+
+        function getRandomChar(chars) {
+            const array = new Uint8Array(1);
+            crypto.getRandomValues(array);
+            return chars[array[0] % chars.length];
+        }
+
+        function shuffleString(str) {
+            const arr = str.split('');
+            for (let i = arr.length - 1; i > 0; i--) {
+                const array = new Uint8Array(1);
+                crypto.getRandomValues(array);
+                const j = array[0] % (i + 1);
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr.join('');
+        }
+
+        function copyPassword() {
+            const passwordDisplay = document.getElementById('passwordDisplay');
+            const copyBtn = document.getElementById('copyBtn');
+            
+            if (passwordDisplay.value) {
+                passwordDisplay.select();
+                document.execCommand('copy');
+                
+                copyBtn.textContent = 'Copied!';
+                copyBtn.classList.add('copied');
+                
+                setTimeout(() => {
+                    copyBtn.textContent = 'Copy';
+                    copyBtn.classList.remove('copied');
+                }, 2000);
+            }
+        }
+
+        function updateStrengthMeter(password) {
+            const strengthFill = document.getElementById('strengthFill');
+            const strengthText = document.getElementById('strengthText');
+            
+            let score = 0;
+
+            // Length scoring
+            if (password.length >= 8) score += 1;
+            if (password.length >= 12) score += 1;
+            if (password.length >= 16) score += 1;
+            if (password.length >= 20) score += 1;
+
+            // Character variety scoring
+            if (/[a-z]/.test(password)) score += 1;
+            if (/[A-Z]/.test(password)) score += 1;
+            if (/[0-9]/.test(password)) score += 1;
+            if (/[^a-zA-Z0-9]/.test(password)) score += 1;
+
+            // Determine strength
+            let strength = '';
+            let width = '0%';
+
+            if (score <= 3) {
+                strength = 'Weak';
+                width = '25%';
+            } else if (score <= 5) {
+                strength = 'Fair';
+                width = '50%';
+            } else if (score <= 7) {
+                strength = 'Good';
+                width = '75%';
+            } else {
+                strength = 'Strong';
+                width = '100%';
+            }
+
+            strengthFill.style.width = width;
+            strengthText.textContent = `Password Strength: ${strength}`;
+        }
+
+        function generateBulkPasswords() {
+            // Function removed - bulk generation disabled
+        }
+
+        // Generate an initial password
+        generatePassword();
+    </script>
+</body>
+</html>
