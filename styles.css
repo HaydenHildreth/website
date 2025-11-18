@@ -477,6 +477,10 @@ main {
     margin-top: 2em;
   }
 
+  .about__contact {
+    align-self: center;
+  }
+
   .footer {
     padding: 2em;
     margin-top: 3em;
